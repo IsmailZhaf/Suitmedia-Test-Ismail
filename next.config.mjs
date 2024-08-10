@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 // next.config.js
 import { createProxyMiddleware } from "http-proxy-middleware";
 
@@ -9,7 +11,7 @@ export default {
         return [
             {
                 source: "/api/ideas/:path*",
-                destination: "https://suitmedia-backend.suitdev.com/api/ideas/:path*",
+                destination: process.env.API,
             },
         ];
     },
